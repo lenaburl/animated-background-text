@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Bg text animation</title>
+  <link href="https://fonts.googleapis.com/css?family=Titan+One&display=swap" rel="stylesheet">
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Titan One', cursive;
+    }
+    body {
+      padding: 100px;
+      box-sizing: border-box;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 128px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+    .text {
+      color: rgba(255, 255, 255, 0);
+    }
+    .text:not(:last-child) {
+      margin-bottom: 50px;
+    }
+    .text.diagonal {
+      background: repeating-linear-gradient(
+        45deg,
+        #31d4f5 25%,
+        #31d4f5 50%,
+        #319af5 50%,
+        #319af5 75%
+      );
+      background-size: 100px 100px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: diagonalBgAnimation 2s linear infinite;
+    }
+
+    .text.horizontal {
+      background: repeating-linear-gradient(to bottom,
+      #31d4f5 25%,
+      #31d4f5 50%,
+      #319af5 50%,
+      #319af5 75%);
+      background-size: 100px 100px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: horizontalBgAnimation 2s linear infinite;
+    }
+
+    .text.vertical {
+      background: repeating-linear-gradient(to right,
+      #31d4f5 25%,
+      #31d4f5 50%,
+      #319af5 50%,
+      #319af5 75%);
+      background-size: 100px 100px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: verticalBgAnimation 2s linear infinite;
+    }
+
+    @keyframes diagonalBgAnimation {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -100px 0;
+      }
+    }
+    @keyframes horizontalBgAnimation {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -50px;
+      }
+    }
+    @keyframes verticalBgAnimation {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="text horizontal">Horizontal</div>
+  <div class="text vertical">Vertical</div>
+  <div class="text diagonal">Diagonal</div>
+</div>
+</body>
+</html>
